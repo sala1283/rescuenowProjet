@@ -21,4 +21,13 @@ class ArticleController extends AbstractController
         $articles = $this->repo->findAll();
         return $this->render('article/index.html.twig', ['articles' => $articles]);
     }
+
+    /**
+     * @Route ("/article/{id}", name = "article.show")
+     */
+    public function show(int $id)
+    {
+        $article = $this->repo->find($id);
+        return $this->render('article/show.html.twig', ["article" => $article]);
+    }
 }
