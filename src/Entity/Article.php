@@ -4,9 +4,14 @@ namespace App\Entity;
 
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
+ * @Vich\Uploadable
  */
 class Article
 {
@@ -41,6 +46,18 @@ class Article
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="articles")
      */
     private $category;
+
+    /**
+     * @var File/null
+     * @Vich\UploadableField(mapping="image_articles", fileNameProperty="imageName")
+     */
+    private $imageFile;
+
+    /**
+     * @var string/null
+     * @ORM\Column(type="string", length=255)
+     */
+    private $imageName;
 
     public function __construct()
     {
@@ -109,6 +126,27 @@ class Article
     {
         $this->category = $category;
 
+        return $this;
+    }
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+    public function setImageName(?string $imageName): self
+    {
+        $this->imageName = $imageName;
+        return $this;
+    }
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+    public function setImageFile(?File $file): self
+    {
+        $this->imageFile = $file;
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->updated_at = new \DateTime('now');
+        }
         return $this;
     }
 }

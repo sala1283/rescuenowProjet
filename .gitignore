@@ -18,3 +18,5 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+/public/images/articles
+!/public/images/articles/img_article.jpg

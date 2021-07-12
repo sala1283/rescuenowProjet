@@ -9,6 +9,7 @@
 		{% for article in articles %}
 			<div class="col-md-4 mb-2 mt-2">
 				<div class="card" style="width: 18rem;">
+					<img src="{{ vich_uploader_asset(article, 'imageFile') }}" class="card-img-top" alt="{{ article.title }}">
 
 					<div class="card-body">
 						<h5 class="card-title">{{article.title}}</h5>

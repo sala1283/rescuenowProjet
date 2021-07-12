@@ -4,6 +4,8 @@
 {% endblock %}
 {% block body %}
 	<h1>{{article.title }}</h1>
-
+	{% if article.imageName %}
+		<img src="{{ vich_uploader_asset(article, 'imageFile') }}" class="card-img-top" alt="{{ article.title }}">
+	{% endif %}
 	<p>{{ article.description }}</p>
 {% endblock %}
