@@ -1,0 +1,15 @@
+easy_admin:
+  entities:
+    Article:
+      class: App\Entity\Article
+      label: Article
+      form:
+        fields:
+          - {
+              property: "description",
+              type: 'FOS\CKEditorBundle\Form\Type\CKEditorType',
+            }
+  design:
+    form_theme:
+      - "@EasyAdmin/form/bootstrap_4.html.twig"
+      - "@FOSCKEditor/Form/ckeditor_widget.html.twig"

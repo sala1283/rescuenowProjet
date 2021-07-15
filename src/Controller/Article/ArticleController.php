@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ArticleController extends AbstractController
 {
     private ArticleRepository $repo;
+
     public function __construct(ArticleRepository $repo)
     {
         $this->repo = $repo;
@@ -27,6 +28,7 @@ class ArticleController extends AbstractController
      */
     public function show(int $id)
     {
+
         $article = $this->repo->find($id);
         return $this->render('article/show.html.twig', ["article" => $article]);
     }

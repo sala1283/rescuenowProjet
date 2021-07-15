@@ -7,5 +7,6 @@
 	{% if article.imageName %}
 		<img src="{{ vich_uploader_asset(article, 'imageFile') }}" class="card-img-top" alt="{{ article.title }}">
 	{% endif %}
-	<p>{{ article.description }}</p>
+	<p>{{ article.description|striptags}}</p>
+
 {% endblock %}
