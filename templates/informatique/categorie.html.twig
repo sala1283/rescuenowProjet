@@ -1,10 +1,14 @@
 {% extends "base.html.twig" %}
 {% block title %}
 	{{category.name}}
+
 {% endblock %}
+
+
 {% block body %}
-	<h1 class="mt-5 mb-4">{{category.name}}</h1>
-	<p class="card-text">{{category.description|striptags}}</p>
+	<h1>{{category.name}}</h1>
+
+	<p>{{ category.description|striptags}}</p>
 
 	<div class="row">
 		{% for article in articles %}
