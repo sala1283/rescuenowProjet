@@ -30,6 +30,15 @@ class ArticleRepository extends ServiceEntityRepository
 
             ->Where('a.category IN (:category) ')
             ->setParameter('category', $category)
+            ->orderBy('a.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+    public function lastTree()
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.id', 'DESC')
+            ->setMaxResults(3)
             ->getQuery()
             ->getResult();
     }
