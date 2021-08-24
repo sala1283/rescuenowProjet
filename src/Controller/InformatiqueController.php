@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
+use App\Repository\ServiceRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,14 +23,14 @@ class InformatiqueController extends AbstractController
     }
 
     /**
-     * @Route("/informatique/{slug}", name="informatique.category")
+     * @Route("/category/{slug}", name="informatique.category")
      */
-    public function categorie(Category $category, ArticleRepository $articleRepository): Response
+    public function categorie(Category $category, ServiceRepository $serviceRepository): Response
     {
-        $articles = $articleRepository->findAllInformatique($category);
+        $services = $serviceRepository->findAllInformatique($category);
         return $this->render(
             'informatique/categorie.html.twig',
-            ['category' => $category, 'articles' => $articles,]
+            ['category' => $category, 'services' => $services,]
         );
     }
 }

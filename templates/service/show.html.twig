@@ -1,0 +1,84 @@
+{% extends  'base.html.twig' %}
+
+{% block  body %}
+
+
+	<!-- CONTENT -->
+
+	<div class="container">
+		<div class="row justify-content-between">
+			<div
+				class="col-12 col-md-4 position-md-sticky d-flex align-items-center vh-md-100" style="top: 0;">
+
+				<!-- Sidebar -->
+				<aside
+					class="py-8 py-md-10 ">
+
+
+					<!-- List group -->
+					<ul class="list-group list-group-flush">
+
+						<li
+							class="list-group-item">
+
+							<!-- Heading -->
+							<h5 class="d-flex mb-0 text-uppercase mb-4">
+
+								Réference:
+
+
+							</h5>
+							<span class="ms-auto">{{service.nom}}</span>
+
+
+						</li>
+						<li
+							class="list-group-item">
+
+							<!-- Heading -->
+							<h5 class="d-flex mb-0 text-uppercase mb-4">
+								Descriptif:</h5>
+
+							<span class="ms-auto">
+								<p>{{ service.description|striptags}}</p>
+							</span>
+
+
+						</li>
+						<li
+							class="list-group-item">
+
+							<!-- Heading -->
+							<h5 class="d-flex mb-0 text-uppercase">
+
+								Prix
+
+							</h6>
+							<span class="ms-auto">800€</span>
+
+						</li>
+					</ul>
+
+				</aside>
+
+			</div>
+			<div
+				class="col-12 col-md-7">
+
+				<!-- Images -->
+				<section class="pb-8 pt-md-12 pb-md-10" data-aos='fade-left'>
+					<a class="d-block" data-bigpicture='{"imgSrc": "assets/img/portfolio/portfolio-21.jpg"}' href="#">
+						<img class="img-fluid rounded" src="/uploads/{{service.illust }}" alt="{{service.nom}}" width="400" height="500">
+
+
+					</a>
+
+				</section>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- SHAPE -->
+
+{% endblock %}

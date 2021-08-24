@@ -23,17 +23,7 @@ class ArticleRepository extends ServiceEntityRepository
     /**
      * @return Article[] Returns an array of Article objects
      */
-    public function findAllInformatique(Category $category): array
-    {
-        return $this->createQueryBuilder('a')
 
-
-            ->Where('a.category IN (:category) ')
-            ->setParameter('category', $category)
-            ->orderBy('a.id', 'DESC')
-            ->getQuery()
-            ->getResult();
-    }
     public function lastTree()
     {
         return $this->createQueryBuilder('a')

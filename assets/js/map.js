@@ -4,14 +4,14 @@
 //
 
 const maps = document.querySelectorAll('[data-map]');
-const accessToken = 'pk.eyJ1IjoiZ29vZHRoZW1lcyIsImEiOiJjanU5eHR4N2cybDU5NGVwOHZwNGprb3E0In0.msdw9q16dh8v4azJXUdiXg';
+const accessToken = 'pk.eyJ1Ijoia3BtbG9rIiwiYSI6ImNrcWs1Ynd0dDEyN20ycG54ZGxncnRncWgifQ.3c3OY3wDtnjyyRI0CJ-vhQ';
 
 maps.forEach((map) => {
   const elementOptions = map.dataset.map ? JSON.parse(map.dataset.map) : {};
 
   const defaultOptions = {
     container: map,
-    style: 'mapbox://styles/mapbox/light-v9',
+    style: 'mapbox://styles/kpmlok/cksho94xc1zt117k02uxrjktw',
     scrollZoom: false,
     interactive: false,
   };
