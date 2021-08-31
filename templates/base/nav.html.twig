@@ -4,7 +4,8 @@
 		class="container">
 
 		<!-- Brand -->
-		<a class="navbar-brand" href="/">
+		<a class="navbar-brand" href="{{path('home')}}">
+
 			<img src="./images/logo.png" class="navbar-brand-img" alt="...">
 		</a>
 
@@ -25,7 +26,8 @@
 			<!-- Navigation -->
 			<ul class="navbar-nav ms-auto">
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="navbarLandings" data-bs-toggle="dropdown" href="/" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" id="navbarLandings" href="{{path('home')}}" aria-haspopup="true" aria-expanded="false">
+
 						Accueil
 					</a>
 
@@ -113,7 +115,8 @@
 					<!-- / .row -->
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="navbarLandings" data-bs-toggle="dropdown" href="/" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" id="navbarLandings" href="{{path('contact')}}" aria-haspopup="true" aria-expanded="false">
+
 						Contact
 					</a>
 				</li>

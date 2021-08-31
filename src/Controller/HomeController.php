@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+
 use App\Entity\Header;
 use App\Entity\Service;
 use App\Repository\ArticleRepository;
@@ -22,6 +23,7 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+
         $headers = $this->entityManager->getRepository(Header::class)->findAll();
         $servicesNew = $this->entityManager->getRepository(Service::class)->findByIsNew(1);
         $servicesPromo = $this->entityManager->getRepository(Service::class)->findByIsPromo(1);

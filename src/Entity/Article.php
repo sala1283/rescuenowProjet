@@ -59,6 +59,11 @@ class Article
      */
     private $imageName;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $subtitle;
+
     public function __construct()
     {
         $this->created_at = new \DateTime();
@@ -147,6 +152,18 @@ class Article
         if ($this->imageFile instanceof UploadedFile) {
             $this->updated_at = new \DateTime('now');
         }
+        return $this;
+    }
+
+    public function getSubtitle(): ?string
+    {
+        return $this->subtitle;
+    }
+
+    public function setSubtitle(string $subtitle): self
+    {
+        $this->subtitle = $subtitle;
+
         return $this;
     }
 }

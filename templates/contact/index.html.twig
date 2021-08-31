@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez Nous
+{% endblock %}
+
+{% block body %}
+	<!-- WELCOME -->
+	<section class="bg-gray-300">
+
+		<iframe class="bg-cover" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2698.317649407952!2d-0.5039089492049511!3d47.444747179072024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4807d7e33c929cb5%3A0xf7c6c57c36a231b9!2zMjMxIFJ1ZSBKZWFuIEphdXLDqHMsIDQ5ODAwIFRyw6lsYXrDqQ!5e0!3m2!1sfr!2sfr!4v1629304252162!5m2!1sfr!2sfr" width="100%" height="542" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+
+		<!-- / .container -->
+	</section>
+
+
+	<!-- SHAPE -->
+	<div class="position-relative">
+		<div class="shape shape-bottom shape-fluid-x text-light">
+			<svg viewbox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>
+		</div>
+	</div>
+
+
+	<!-- INFO -->
+	<section class="py-7 py-md-9 border-bottom border-gray-300" id="info">
+		<div
+			class="container">
+
+			<!-- / .row -->
+			<div class="row">
+				<div
+					class="col-12 col-md-4 text-center border-end border-gray-300">
+
+					<!-- Heading -->
+					<h6 class="text-uppercase text-white mb-1">
+						Déclarer un incident
+					</h6>
+
+					<!-- Link -->
+					<div class="mb-5 mb-md-0">
+						<a href="{{path('incident')}}" class="h4 text-primary">
+
+							Incident
+						</a>
+					</div>
+
+				</div>
+				<div
+					class="col-12 col-md-4 text-center border-end border-gray-300">
+
+					<!-- Heading -->
+					<h6 class="text-uppercase text-white mb-1">
+						Téléphone
+					</h6>
+
+					<!-- Link -->
+					<div class="mb-5 mb-md-0">
+						<a href="#!" class="h4">
+							+(33) 02.41.76.10.37
+
+						</a>
+					</div>
+
+				</div>
+				<div
+					class="col-12 col-md-4 text-center">
+
+					<!-- Heading -->
+					<h6 class="text-uppercase text-white mb-1">
+						Email
+					</h6>
+
+					<!-- Link -->
+					<a href="#!" class="h4">
+						contact@rescuenow.fr
+
+					</a>
+
+				</div>
+			</div>
+			<!-- / .row -->
+		</div>
+	</section>
+
+	<!-- FORM -->
+	<section class="pt-8 pt-md-11 pb-8 pb-md-14">
+		<div class="container">
+			<div class="row">
+				<div class="row justify-content-center">
+					<div
+						class="col-12 col-md-10 col-lg-8 text-center">
+
+						<!-- Heading -->
+						<h2 class="fw-bold">
+							Envoyer nous un message
+						</h2>
+
+						<!-- Text -->
+						<p class="fs-lg text-muted mb-7 mb-md-9">N'hésitez pas à prendre contact avec nous, notre équipe va vous répondre dans les meilleurs délais.</p>
+
+						{% for message in app.flashes('message') %}
+							<div class="alert alert-success">{{message}}</div>
+						{% endfor %}
+
+
+					</div>
+				</div>
+
+
+				<div
+					class="col-12 col-md-6" data-aos='fade-right'>
+
+
+					<!-- Form -->
+					{{form_start(form)}}
+					{{form_rest(form)}}
+
+					{{form_end(form)}}
+
+
+				</div>
+				<div class="col-12 col-md-6  bg-cover" style="background-image: url(https://landkit.goodthemes.co/assets/img/covers/cover-10.jpg);" data-aos='fade-left'></div>
+
+			</div>
+
+		</div>
+
+
+	</div>
+
+</div>
+<!-- / .container --></section><!-- SHAPE --><div class="position-relative">
+<div class="shape shape-bottom shape-fluid-x text-dark">
+	<svg viewbox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>
+</div></div>{% endblock %}

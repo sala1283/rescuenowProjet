@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -56,6 +58,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @Assert\Length(min = 3, max = 20)
      */
     private $lastname;
+    /**
+     * @ORM\OneToMany(targetEntity=Incident::class, mappedBy="user")
+     */
+    private $incidents;
+
+    public function __construct()
+    {
+
+        $this->incidents = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -173,6 +185,45 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
+
+        return $this;
+    }
+
+
+
+
+
+    public function __toString()
+    {
+        return (string) $this->getUserIdentifier();
+    }
+
+    /**
+     * @return Collection|Incident[]
+     */
+    public function getIncidents(): Collection
+    {
+        return $this->incidents;
+    }
+
+    public function addIncident(Incident $incident): self
+    {
+        if (!$this->incidents->contains($incident)) {
+            $this->incidents[] = $incident;
+            $incident->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIncident(Incident $incident): self
+    {
+        if ($this->incidents->removeElement($incident)) {
+            // set the owning side to null (unless already changed)
+            if ($incident->getUser() === $this) {
+                $incident->setUser(null);
+            }
+        }
 
         return $this;
     }
