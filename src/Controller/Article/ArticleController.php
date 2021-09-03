@@ -2,18 +2,26 @@
 
 namespace App\Controller\Article;
 
+use App\Entity\Article;
 use App\Repository\ArticleRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ArticleController extends AbstractController
 {
-    private ArticleRepository $repo;
 
-    public function __construct(ArticleRepository $repo)
+
+    private ArticleRepository $repo;
+    private $entityManager;
+
+    public function __construct(ArticleRepository $repo, EntityManagerInterface $entityManager)
     {
         $this->repo = $repo;
+        $this->entityManager = $entityManager;
     }
+
+
     /**
      * @Route("articles", name ="article.index")
      */
@@ -24,12 +32,12 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route ("/article/{id}", name = "article.show")
+     * @Route ("/article/{slug}", name = "article.show")
      */
-    public function show(int $id)
+    public function show($slug)
     {
 
-        $article = $this->repo->find($id);
+        $article = $this->entityManager->getRepository(Article::class)->findOneBySlug($slug);
         return $this->render('article/show.html.twig', ["article" => $article]);
     }
 }

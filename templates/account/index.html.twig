@@ -1,31 +1,131 @@
-<html>
+{% extends 'base.html.twig' %}
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+{% block title %}Mon Compte
+{% endblock %}
 
-		<title>
-			{% block title %}Mon compte
-			{% endblock %}
-		</title>
-		{# Run `composer require symfony/webpack-encore-bundle`
-																																																																																																																																																																						and uncomment the following Encore helpers to start using Symfony UX #}
-		<!-- CSS only -->
-		{% block stylesheets %}
-			{{ encore_entry_link_tags('app') }}
-		{% endblock %}
+{% block body %}
+	<section class="py-7 py-md-9  mb-8 border-bottom border-gray-300">
 
-	</head>
+		<div
+			class="container">
+
+			<!-- / .row -->
+			<div class="row">
+				<div class="col-12 col-md-4 border-end border-gray-300">
 
 
-	{% block body %}
-		<h1>Mon Compet</h1>
-		<p>Bienvenue dans votre esapce client!</p>
-		-
-		<a href={{path('account_password')}} ">Modifier mon mot de passe</a>
-		{% block javascripts %}
-			{{ encore_entry_script_tags('app') }}
-		{% endblock %}
+					<h1>Mon Compet</h1>
+					<p>Bienvenue dans votre esapce client!</p>
 
-	{% endblock %}
-</html>
+					<p>- Nom:
+						{{ app.user.Firstname }}
+						{{ app.user.Lastname }}</p>
+
+
+					<p>- Email:
+						{{ app.user.email }}</p>
+					<p></p>
+					<p>- Email:
+						{{ app.user.phone }}</p>
+
+
+					<p></p>
+
+					<a href="{{path('account_password')}} ">- Modifier mon mot de passe</a>
+				</p>
+
+
+			</div>
+		</div>
+
+	</div>
+	<section class="bg-gray-200">
+
+		<div class="container">
+
+			<div class="row">
+				<div
+					class="col  mt-8">
+
+					<!-- Card -->
+					<div class="card card-border border-primary shadow-lg mb-6 mb-md-8 lift lift-lg" data-aos='fade-right'>
+
+						<div
+							class="card-body text-center">
+
+							<!-- Icon -->
+							<div class="icon-circle bg-primary text-white mb-5">
+								<i class="fe fe-mail"></i>
+							</div>
+
+							<!-- Heading -->
+							<h4 class="fw-bold">
+								Nous contacter
+							</h4>
+
+							<!-- Text -->
+							<p class="text-gray-700 mb-5">
+								N'hésitez pas à prendre contact avec nous, notre équipe va vous répondre dans les meilleurs délais.
+
+							</p>
+
+							<!-- Badge -->
+							<span class="badge rounded-pill bg-dark-soft">
+								<span class="h6 text-uppercase">
+									<a href="{{path('contact')}}">Contact</a>
+
+								</span>
+							</span>
+
+						</div>
+					</div>
+
+				</div>
+				<div
+					class="col mt-8">
+
+					<!-- Card -->
+					<div class="card card-border border-success shadow-lg mb-6 mb-md-8 lift lift-lg" data-aos='fade-left'>
+
+						<div
+							class="card-body text-center">
+
+							<!-- Icon -->
+							<div class="icon-circle bg-success text-white mb-5">
+								<i class="fe fe-tag"></i>
+							</div>
+
+							<!-- Heading -->
+							<h4 class="fw-bold">
+								Déclarer un incident
+							</h4>
+
+							<!-- Text -->
+							<p class="text-gray-700 mb-5">
+								Vous constatez une anomalie? Vous pouvez le signaler à nos équipes techniques.
+
+							</p>
+
+							<!-- Badge -->
+							<span class="badge rounded-pill bg-dark-soft">
+								<span class="h6 text-uppercase">
+									<a href="{{path('incident')}}">Incident</a>
+
+								</span>
+							</span>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+</section>
+<!-- SHAPE -->
+<div class="position-relative">
+	<div class="shape shape-bottom shape-fluid-x text-dark">
+		<svg viewbox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>
+	</div>
+</div>{% endblock %}

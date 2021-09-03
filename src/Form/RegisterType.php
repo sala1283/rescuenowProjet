@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 
 class RegisterType extends AbstractType
 {
@@ -21,6 +22,7 @@ class RegisterType extends AbstractType
             ->add('firstname', TextType::class, ['required' => true, 'label' => 'Nom', 'attr' => ['placeholder' => 'Entrer Votre nom']])
             ->add('lastname', TextType::class, ['required' => true, 'label' => 'Prénom', 'attr' => ['placeholder' => 'Entrer Votre prénom']])
             ->add('email', EmailType::class, ['required' => true, 'label' => 'Email', 'attr' => ['placeholder' => 'Entrer Votre émail']])
+            ->add('phone', TelType::class, ['required' => true, 'label' => 'Téléphone'])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'Le mot de passe et la confirmation doivent être identiques.',

@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -28,9 +27,15 @@ class ArticleCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('title'),
-            TextEditorField::new('description')->setFormType(CKEditorType::class),
-            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
-            ImageField::new('imageName')->setBasePath('/images/articles/')->onlyOnIndex(),
+            TextEditorField::new('description'),
+            TextField::new('imageFile'),
+
+
+            ImageField::new('imageName')->setBasePath('images/articles/')
+                ->setUploadDir('public/images/articles/')
+                ->setUploadedFileNamePattern('[randomhash] . [extension]')
+                ->setRequired(false),
+
             DateField::new('created_At')->hideOnForm(),
             SlugField::new('slug')->setTargetFieldName('title')->hideOnIndex(),
             AssociationField::new('category'),

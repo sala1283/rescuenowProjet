@@ -3,11 +3,107 @@
 	{{article.title }}
 {% endblock %}
 {% block body %}
-	<h1>{{article.title }}</h1>
-	{% if article.imageName %}
-		<img src="{{ vich_uploader_asset(article, 'imageFile') }}" class="card-img-top" alt="{{ article.title }}">
-	{% endif %}
-	<p>{{ article.description|striptags}}</p>
 
 
+	<!-- CONTENT -->
+	<section class="pt-8 pt-md-11 pb-8 pb-md-14">
+		<div class="container">
+			<div class="row align-items-center">
+				<div
+					class="col-12 col-md">
+
+					<!-- Heading -->
+					<h1 class="display-4 mb-2">
+						{{article.title }}
+
+					</h1>
+
+
+				</div>
+				<div class="col-auto"></div>
+			</div>
+			<!-- / .row -->
+			<div class="row">
+				<div
+					class="col-12">
+
+					<!-- Divider -->
+					<hr class="my-6 my-md-8">
+
+				</div>
+			</div>
+			<!-- / .row -->
+			<div class="row">
+				<div
+					class="col-12 col-md-8">
+
+					<!-- Text -->
+					<p class="fs-lg text-gray-800 mb-6 mb-md-8">
+						{{ article.description|raw}}</p>
+
+
+					<!-- Heading -->
+
+				</div>
+				<div
+					class="col-12 col-md-4">
+
+					<!-- Card -->
+					<div class="card shadow-light-lg">
+						<div
+							class="card-body">
+
+							<!-- Heading -->
+							<h4>
+								Vous avez une question?
+							</h4>
+
+							<!-- Text -->
+							<p class="fs-sm text-gray-800 mb-5">
+								N'hésitez pas à prendre contact avec nous, notre équipe va vous répondre dans les meilleurs délais.</p>
+
+
+							<!-- Heading -->
+							<h6 class="fw-bold text-uppercase text-gray-700 mb-2">
+								Téléphone:
+							</h6>
+
+							<!-- Text -->
+							<p class="fs-sm mb-5">
+								<a href="tel:555-123-4567" class="text-reset">+(33) 02.41.76.10.37
+								</a>
+
+							</p>
+
+							<!-- Heading -->
+							<h6 class="fw-bold text-uppercase text-gray-700 mb-2">
+								Émail
+
+							</h6>
+
+							<!-- Text -->
+							<p class="fs-sm mb-0">
+								<a href="mailto:contact@rescuenow.fr " class="text-reset">contact@rescuenow.fr
+								</a>
+
+
+							</p>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<!-- / .row -->
+		</div>
+		<!-- / .container -->
+	</section>
+
+	<!-- SHAPE -->
+	<div class="position-relative">
+		<div class="shape shape-bottom shape-fluid-x text-dark">
+			<svg viewbox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>
+		</div>
+	</div>
 {% endblock %}

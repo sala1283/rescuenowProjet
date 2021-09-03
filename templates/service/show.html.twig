@@ -1,84 +1,77 @@
-{% extends  'base.html.twig' %}
-
-{% block  body %}
+{% extends "base.html.twig" %}
+{% block title %}
+	{{service.nom }}
+{% endblock %}
+{% block body %}
 
 
 	<!-- CONTENT -->
+	<section class="pt-8 pt-md-11 pb-8 pb-md-14">
+		<div class="container">
+			<div class="row align-items-center">
+				<div
+					class="col-12 col-md">
 
-	<div class="container">
-		<div class="row justify-content-between">
-			<div
-				class="col-12 col-md-4 position-md-sticky d-flex align-items-center vh-md-100" style="top: 0;">
-
-				<!-- Sidebar -->
-				<aside
-					class="py-8 py-md-10 ">
-
-
-					<!-- List group -->
-					<ul class="list-group list-group-flush">
-
-						<li
-							class="list-group-item">
-
-							<!-- Heading -->
-							<h5 class="d-flex mb-0 text-uppercase mb-4">
-
-								Réference:
+					<!-- Heading -->
+					<h1 class="display-4 mb-2">
+						{{service.nom }}
 
 
-							</h5>
-							<span class="ms-auto">{{service.nom}}</span>
+					</h1>
+					<!-- Divider -->
+					<hr class="my-6 my-md-4">
 
 
-						</li>
-						<li
-							class="list-group-item">
-
-							<!-- Heading -->
-							<h5 class="d-flex mb-0 text-uppercase mb-4">
-								Descriptif:</h5>
-
-							<span class="ms-auto">
-								<p>{{ service.description|striptags}}</p>
-							</span>
+				</div>
 
 
-						</li>
-						<li
-							class="list-group-item">
+				<!-- / .row -->
+				<div class="row">
+					<div
+						class="col-12 col-md-8">
 
-							<!-- Heading -->
-							<h5 class="d-flex mb-0 text-uppercase">
+						<!-- Text -->
+						<p class="fs-lg text-gray-800 mb-6 mb-md-4">
+							{{ service.description|raw}}</p>
 
-								Prix
 
-							</h6>
-							<span class="ms-auto">800€</span>
+						<!-- Text -->
 
-						</li>
-					</ul>
 
-				</aside>
+						<p class="fs-lg text-gray-700 mb-md-0">
+							Prix:
+							{{(service.price /100)| number_format(2, ',', '.')}}
+							&euro;
 
+
+						</p>
+
+
+					</div>
+					<div class="col-12 col-md-4">
+						<figure
+							class="figure mb-7" data-aos='fade-left'>
+
+
+							<!-- Image -->
+							<img class="figure-img img-fluid rounded lift lift-lg" src="/uploads/{{service.illust }}" alt="{{service.nom}}">
+
+
+						</figure>
+
+
+					</div>
+
+				</div>
+				<!-- / .row -->
 			</div>
-			<div
-				class="col-12 col-md-7">
+			<!-- / .container -->
+		</section>
 
-				<!-- Images -->
-				<section class="pb-8 pt-md-12 pb-md-10" data-aos='fade-left'>
-					<a class="d-block" data-bigpicture='{"imgSrc": "assets/img/portfolio/portfolio-21.jpg"}' href="#">
-						<img class="img-fluid rounded" src="/uploads/{{service.illust }}" alt="{{service.nom}}" width="400" height="500">
-
-
-					</a>
-
-				</section>
-
+		<!-- SHAPE -->
+		<div class="position-relative">
+			<div class="shape shape-bottom shape-fluid-x text-dark">
+				<svg viewbox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>
 			</div>
 		</div>
-	</div>
-
-	<!-- SHAPE -->
-
-{% endblock %}
+	{% endblock %}

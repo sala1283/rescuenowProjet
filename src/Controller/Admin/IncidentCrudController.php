@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Incident;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -24,6 +25,7 @@ class IncidentCrudController extends AbstractCrudController
             TextEditorField::new('description'),
 
             AssociationField::new('user'),
+            DateField::new('createdAt'),
         ];
     }
 }

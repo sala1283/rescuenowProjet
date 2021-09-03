@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Header;
 use App\Entity\Incident;
@@ -32,10 +33,11 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Services', 'fas fa-tag', Service::class);
+        yield MenuItem::linkToCrud('Articles', 'fas fa-book', Article::class);
+        yield MenuItem::linkToCrud('Services', 'fas fa-th-large', Service::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Category::class);
-        yield MenuItem::linkToCrud('Banniéres', 'fas fa-desktop', Header::class);
         yield MenuItem::linkToCrud('Tickets incidents', 'fas fa-tag', Incident::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
+        yield MenuItem::linkToCrud('Banniéres', 'fas fa-desktop', Header::class);
     }
 }

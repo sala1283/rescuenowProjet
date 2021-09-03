@@ -8,7 +8,7 @@
 			{% endblock %}
 		</title>
 		{# Run `composer require symfony/webpack-encore-bundle`
-																																																																																																																																																								and uncomment the following Encore helpers to start using Symfony UX #}
+																																																																																																																																																												and uncomment the following Encore helpers to start using Symfony UX #}
 		<!-- CSS only -->
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
@@ -43,8 +43,14 @@
 
 							<!-- Text -->
 							<p class="mb-0 fs-sm text-muted">
-								Already have an account?
-								<a href="signin-cover.html">Log in</a>.
+								Vous avez un compte
+								<a href="{{path('app_login')}}">Se connecter</a>.
+
+							</p>
+							<p class="mb-0fs-smtext-muted">
+
+								<a href="{{path('reset_password')}}">Mot de passe oublié?</a>.
+
 							</p>
 
 						</div>
