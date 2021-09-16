@@ -24,7 +24,8 @@
 			</button>
 
 			<!-- Navigation -->
-			<ul class="navbar-nav ms-auto">
+			<ul class="navbar-nav me-auto">
+
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" id="navbarLandings" href="{{path('home')}}" aria-haspopup="true" aria-expanded="false">
 
@@ -129,26 +130,45 @@
 						Contact
 					</a>
 				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="navbarLandings" href="{{path('account')}}">
+			</ul>
+			<ul class="navbar-nav">
 
-						Mon Compte
-					</a>
-				</li>
 
+				{% if app.user %}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarLandings" href="{{path('account')}}">
+
+							Mon Compte
+						</a>
+					</li>
+
+					|
+
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarLandings" href="{{path('app_logout')}}">Déconnexion</a>
+
+					</li>
+
+
+				{% else %}
+					<li class="nav-item dropdown">
+						<a class="nav-link" href="{{path('app_login')}}">Connexion</a>
+
+					</li>
+
+					|
+
+					<li class="nav-item dropdown">
+						<a class="nav-link" href="{{path('register')}}">Inscription</a>
+
+
+					</li>
+
+
+				{% endif %}
 
 			</ul>
-
-			<!-- Button -->
-			<!-- Button -->
-			{% if app.user %}
-
-				<a href="{{path('app_logout')}}">Déconnexion</a>
-			{% else %}
-				<a href="{{path('app_login')}}">Connexion</a>
-				|
-				<a href="{{path('register')}}">Inscription</a>
-			{% endif %}
 
 
 		</div>
