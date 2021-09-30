@@ -17,7 +17,7 @@ class IncidentNotification
     public function notifyIncident(Incident $incident)
     {
         $email = (new Email())
-            ->from("webmaster75000@gmail.com")
+            ->from("contact@rescuenow.eu")
             ->to($incident->getUser()->getEmail())
             ->subject("Ticket incident#" . $incident->getId())
             ->text($incident->getDescription());

@@ -17,7 +17,7 @@ class ContactNotification
     public function notify(Contact $contact)
     {
         $email = (new Email())
-            ->from("webmaster75000@gmail.com")
+            ->from("contact@rescuenow.eu")
             ->to($contact->getEmail())
             ->subject("Demande de contact")
             ->text($contact->getMessage());

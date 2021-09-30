@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Page introuvable
+{% endblock %}
+
+{% block body %}
+
+	<section class="py-8 py-md-11 mt-n10 mt-md-n14">
+
+
+		<h2>Page introuvable !</h2>
+		<p>Désolé, cette page n'existe pas...</p>
+		<a href="{{ path('home') }}" class="btn btn-info">Revenir à l'acceuil</a>
+
+	</section>
+{% endblock %}
